@@ -20,7 +20,9 @@ public class AIMoveScript : MonoBehaviour
     // Update is called once per frame
 	void Update () 
 	{
-        if (stopMoving == false)
+        
+
+		if (stopMoving == false)
         {
             MoveForwards();
         }
@@ -48,17 +50,17 @@ public class AIMoveScript : MonoBehaviour
 
     void leftTriggerOn()
     {
-        transform.Rotate(Vector3.up * Time.deltaTime * 10f);
+        transform.Rotate(Vector3.up);
     }
 
     void rightTriggerOn()
     {
-        transform.Rotate(Vector3.down * Time.deltaTime * 10f);
+        transform.Rotate(Vector3.down);
     }
 
     void bothTriggered()
     {
-        
+		transform.Rotate (Vector3.up);
     }
     
     
@@ -69,5 +71,11 @@ public class AIMoveScript : MonoBehaviour
 		transform.Translate (Vector3.forward * Time.deltaTime); 
 	}
 
+	/*
+	void MoveBackwards()
+	{
+		transform.Translate (Vector3.back * Time.deltaTime); 
+	}
+    */
     
 }

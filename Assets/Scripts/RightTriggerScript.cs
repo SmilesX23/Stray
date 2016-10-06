@@ -29,7 +29,7 @@ public class RightTriggerScript : MonoBehaviour {
 
 	void OnTriggerStay()
 	{
-
+		
 	}
 
 
