@@ -24,19 +24,22 @@ public class AIMoveScript : MonoBehaviour
         {
             MoveForwards();
         }
+
         if (leftTriggered)
         {
             leftTriggerOn();
         }
+
 
         if (rightTriggered)
         {
             rightTriggerOn();
         }
 
+
         if (leftTriggered && rightTriggered)
         {
-
+            bothTriggered();
         }
 	}
 
@@ -52,6 +55,11 @@ public class AIMoveScript : MonoBehaviour
     {
         transform.Rotate(Vector3.down * Time.deltaTime * 10f);
     }
+
+    void bothTriggered()
+    {
+        
+    }
     
     
     
@@ -61,8 +69,5 @@ public class AIMoveScript : MonoBehaviour
 		transform.Translate (Vector3.forward * Time.deltaTime); 
 	}
 
-    void JustBaaaaackItUp()
-    {
-
-    }
+    
 }
