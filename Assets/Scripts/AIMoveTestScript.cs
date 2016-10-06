@@ -4,25 +4,18 @@ using System.Collections;
 public class AIMoveTestScript : MonoBehaviour {
 
 	int rand;
-	bool needStop = false;
-
-
-
-
-
-
+	bool stopMoving = false;
 
 
 	void Start () 
 	{
 		
 	}
-	
 
 
 	void Update () 
 	{
-		if(needStop == false)
+		if(stopMoving == false)
 		{
 			MoveForwards ();	
 		}
@@ -32,7 +25,7 @@ public class AIMoveTestScript : MonoBehaviour {
 
 
 
-
+	//This will become Wander() once fully implemented.
 	void MoveForwards()
 	{
 		transform.Translate (Vector3.forward * Time.deltaTime); 
@@ -50,12 +43,8 @@ public class AIMoveTestScript : MonoBehaviour {
 	#region TriggerFunctions
 	void OnTriggerEnter(Collider otherGO)
 	{
-		needStop = true;
-
+		stopMoving = true;
 		rand = Random.Range (0, 2);
-		Debug.Log ("The random int is equal to: " + rand);
-
-
 	}
 
 
@@ -75,7 +64,7 @@ public class AIMoveTestScript : MonoBehaviour {
 
 	void OnTriggerExit(Collider otherGO)
 	{
-		needStop = false;
+		stopMoving = false;
 	}
 	#endregion 
 
