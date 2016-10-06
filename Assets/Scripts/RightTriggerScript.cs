@@ -9,7 +9,8 @@ public class RightTriggerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		mothershipMS = mothership.GetComponent<AIMoveScript> ();
+        mothership = GameObject.Find("NPC1");
+        mothershipMS = mothership.GetComponent<AIMoveScript>();
 	}
 	
 	// Update is called once per frame
@@ -21,8 +22,9 @@ public class RightTriggerScript : MonoBehaviour {
 
 	void OnTriggerEnter()
 	{
-
-	}
+        mothershipMS.stopMoving = true;
+        mothershipMS.rightTriggered = true;
+    }
 
 
 	void OnTriggerStay()
@@ -33,7 +35,8 @@ public class RightTriggerScript : MonoBehaviour {
 
 	void OnTriggerExit()
 	{
-
-	}
+        mothershipMS.stopMoving = false;
+        mothershipMS.rightTriggered = false; ;
+    }
 
 }

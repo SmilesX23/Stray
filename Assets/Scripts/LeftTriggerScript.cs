@@ -9,8 +9,9 @@ public class LeftTriggerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		mothershipMS = mothership.GetComponent<AIMoveScript> ();
-	}
+        mothership = GameObject.Find("NPC1");
+        mothershipMS = mothership.GetComponent<AIMoveScript>();
+    }
 	
 	// Update is called once per frame
 	void Update () 
@@ -26,8 +27,9 @@ public class LeftTriggerScript : MonoBehaviour {
 
 	void OnTriggerEnter()
 	{
-
-	}
+        mothershipMS.stopMoving = true;
+        mothershipMS.leftTriggered = true;
+    }
 
 
 	void OnTriggerStay()
@@ -38,7 +40,8 @@ public class LeftTriggerScript : MonoBehaviour {
 
 	void OnTriggerExit()
 	{
-
-	}
+        mothershipMS.stopMoving = false;
+        mothershipMS.leftTriggered = false;
+    }
 
 }
