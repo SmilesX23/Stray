@@ -9,7 +9,7 @@ public class LeftTriggerScript : MonoBehaviour {
 	void Start () 
 	{
         
-		mothershipMS = transform.parent.GetComponent<AIMoveScript>();
+		mothershipMS = transform.parent.GetComponent<AIMoveScript>();//Get a reference to the AIMoveScript in the parent
     }
 	
 	// Update is called once per frame
@@ -26,8 +26,8 @@ public class LeftTriggerScript : MonoBehaviour {
 
 	void OnTriggerEnter()
 	{
-        mothershipMS.stopMoving = true;
-        mothershipMS.leftTriggered = true;
+        mothershipMS.stopMoving = true; //Tell the AIMoveScript to stop the NPC and start rotating
+        mothershipMS.leftTriggered = true;//Tell the AIMoveScript that one of the left side triggers was activated.
     }
 
 
@@ -36,8 +36,8 @@ public class LeftTriggerScript : MonoBehaviour {
 
 	void OnTriggerExit()
 	{
-        mothershipMS.stopMoving = false;
-        mothershipMS.leftTriggered = false;
+        mothershipMS.stopMoving = false;//Resume normal forward march
+        mothershipMS.leftTriggered = false;//Left trigger no longer activated
     }
 
 }

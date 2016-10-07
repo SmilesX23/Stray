@@ -10,7 +10,7 @@ public class RightTriggerScript : MonoBehaviour {
 	void Start () 
 	{
        
-		mothershipMS = transform.parent.GetComponent<AIMoveScript>();
+		mothershipMS = transform.parent.GetComponent<AIMoveScript>();//Get a reference to the AIMoveScript in the parent
 	}
 	
 	// Update is called once per frame
@@ -22,8 +22,8 @@ public class RightTriggerScript : MonoBehaviour {
 
 	void OnTriggerEnter()
 	{
-        mothershipMS.stopMoving = true;
-        mothershipMS.rightTriggered = true;
+        mothershipMS.stopMoving = true;//Tell NPC to stop moving.
+        mothershipMS.rightTriggered = true;//Tell AIMoveScript that one of the right triggers has been activated
     }
 
 
@@ -32,8 +32,8 @@ public class RightTriggerScript : MonoBehaviour {
 
 	void OnTriggerExit()
 	{
-        mothershipMS.stopMoving = false;
-        mothershipMS.rightTriggered = false; ;
+        mothershipMS.stopMoving = false;//Start moving again
+        mothershipMS.rightTriggered = false; //Right trigger status reset.
     }
 
 }

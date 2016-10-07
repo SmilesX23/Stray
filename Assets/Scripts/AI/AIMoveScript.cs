@@ -4,7 +4,10 @@ using System.Collections;
 public class AIMoveScript : MonoBehaviour 
 {
     public bool stopMoving = false;
+	public bool moveToPlayer = false;
+	public bool fleeFromPlayer = false;
 
+	public Vector3 playerPosition;
 
     public bool leftTriggered = false;
     public bool rightTriggered = false;
@@ -24,10 +27,21 @@ public class AIMoveScript : MonoBehaviour
 
 		if (stopMoving == false)
         {
+			//Currently the default movement is a straight line, avoiding trees and such. Will eventually be a wander function.
             MoveForwards();
         }
 
-        if (leftTriggered)
+		if(moveToPlayer)
+		{
+			//If a player enters the detection radius and we have to approach, this triggers.
+			transform.position = Vector3.MoveTowards (transform.position,playerPosition,Time.deltaTime);
+		}
+        
+
+
+
+		//The following 3 functions basically explain themselves.
+		if (leftTriggered)
         {
             leftTriggerOn();
         }
@@ -47,7 +61,7 @@ public class AIMoveScript : MonoBehaviour
 
 
 
-
+	//Steps to take once the triggers activate, either rotate left, or right.
     void leftTriggerOn()
     {
         transform.Rotate(Vector3.up);
@@ -71,11 +85,6 @@ public class AIMoveScript : MonoBehaviour
 		transform.Translate (Vector3.forward * Time.deltaTime); 
 	}
 
-	/*
-	void MoveBackwards()
-	{
-		transform.Translate (Vector3.back * Time.deltaTime); 
-	}
-    */
+
     
 }
