@@ -50,12 +50,14 @@ public class PlayerDetectionScript : MonoBehaviour {
 			//If decided to approach, set variables in AIMoveScript to allow approach
 			if(towards)
 			{
-				RunTowards ();
+				mothershipMS.stopMoving = true;
+				mothershipMS.moveToPlayer = true;
+				mothershipMS.playerPosition = collider.gameObject.transform.position;
 			}
-
+			//If decided to flee, run the fuck away.
 			if(flee)
 			{
-				Flee ();
+				Debug.Log ("Flee not implemented yet.");
 			}
 
 			//Get vector between current position and player position
@@ -89,15 +91,5 @@ public class PlayerDetectionScript : MonoBehaviour {
 
 
 
-	void RunTowards()
-	{
-		mothershipMS.stopMoving = true;
-		mothershipMS.moveToPlayer = true;
-		mothershipMS.playerPosition = collider.gameObject.transform.position;	
-	}
 
-	void Flee()
-	{
-		Debug.Log ("Flee not implemented yet.");
-	}
 }
