@@ -3,14 +3,14 @@ using System.Collections;
 
 public class RightTriggerScript : MonoBehaviour {
 
-	public GameObject mothership;
+
 	AIMoveScript mothershipMS;
 
 	// Use this for initialization
 	void Start () 
 	{
-        mothership = GameObject.Find("NPC1");
-        mothershipMS = mothership.GetComponent<AIMoveScript>();
+       
+		mothershipMS = transform.parent.GetComponent<AIMoveScript>();
 	}
 	
 	// Update is called once per frame
@@ -27,10 +27,7 @@ public class RightTriggerScript : MonoBehaviour {
     }
 
 
-	void OnTriggerStay()
-	{
-		
-	}
+
 
 
 	void OnTriggerExit()
