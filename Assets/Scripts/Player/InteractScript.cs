@@ -23,6 +23,20 @@ public class InteractScript : MonoBehaviour {
 			if(hit.collider.gameObject.tag == "AI")
 			{
 				interactText.enabled = true;
+				if(Input.GetKeyDown(KeyCode.E))
+				{
+					//What happens if you interact with the AI agent.
+				}
+			}
+
+			if(hit.collider.gameObject.tag == "Player")
+			{
+				interactText.enabled = true;
+				if(Input.GetKeyDown(KeyCode.E))
+				{
+					//What happens if you interact with the other player.
+				}
+
 			}
 		} 
 		else 
