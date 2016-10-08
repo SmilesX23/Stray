@@ -53,13 +53,18 @@ public class PlayerDetectionScript : MonoBehaviour {
 			if(towards)
 			{
 				mothershipMS.stopMoving = true;
+				mothershipMS.fleeFromPlayer = false;
 				mothershipMS.moveToPlayer = true;
 				mothershipMS.playerPosition = collider.gameObject.transform.position;
 			}
 			//If decided to flee, run the fuck away.
 			if(flee)
 			{
-				//Debug.Log ("Flee not implemented yet.");
+				mothershipMS.stopMoving = true;
+				mothershipMS.moveToPlayer = false;
+				mothershipMS.fleeFromPlayer = true;
+				mothershipMS.playerPosition = collider.gameObject.transform.position;
+
 			}
 
 			//Get vector between current position and player position

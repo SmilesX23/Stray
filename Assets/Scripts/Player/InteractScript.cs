@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class InteractScript : MonoBehaviour {
 
 
-	public Text interactText;
+	public Text interactText;// This is the "Press E to interact" text object
 
 	// Use this for initialization
 	void Start () 
@@ -16,13 +16,13 @@ public class InteractScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		RaycastHit hit;
+		RaycastHit hit; //This is used to see what teh Ray has hit.
 
-		if (Physics.Raycast (transform.position, transform.forward,out hit, 3)) 
+		if (Physics.Raycast (transform.position, transform.forward,out hit, 3)) //Checks the ray that was cast from the FPC, 3 units ahead.
 		{
-			if(hit.collider.gameObject.tag == "AI")
+			if(hit.collider.gameObject.tag == "AI")//If ray hit collider with AI tag
 			{
-				interactText.enabled = true;
+				interactText.enabled = true; 
 				if(Input.GetKeyDown(KeyCode.E))
 				{
 					//What happens if you interact with the AI agent.
@@ -39,7 +39,7 @@ public class InteractScript : MonoBehaviour {
 
 			}
 		} 
-		else 
+		else //In all other cases, I.E: if nothing is happening, make sure the text prompt isn't showing.
 		{
 			interactText.enabled = false;
 		}
