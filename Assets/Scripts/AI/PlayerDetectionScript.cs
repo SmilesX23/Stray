@@ -25,17 +25,19 @@ public class PlayerDetectionScript : MonoBehaviour {
 	void OnTriggerEnter(Collider collider)
 	{
 		//If the trigger collided with a player, decide whether or not to approach or flee.
-		if(collider.tag == "Player")
+		if(collider.gameObject.tag == "Player")
 		{
 			//50% chance to approach or flee
 			rand = Random.Range (0,2);
 			if(rand == 0)
 			{
+				Debug.Log ("Towards set to true!");
 				towards = true;
 			}
 
 			if(rand == 1)
 			{
+				Debug.Log ("Flee set to true!");
 				flee = true;
 			}	
 		}
@@ -44,7 +46,7 @@ public class PlayerDetectionScript : MonoBehaviour {
 
 	void OnTriggerStay(Collider collider)
 	{
-		if(collider.tag == "Player")
+		if(collider.gameObject.tag == "Player")
 		{
 
 			//If decided to approach, set variables in AIMoveScript to allow approach
@@ -57,7 +59,7 @@ public class PlayerDetectionScript : MonoBehaviour {
 			//If decided to flee, run the fuck away.
 			if(flee)
 			{
-				Debug.Log ("Flee not implemented yet.");
+				//Debug.Log ("Flee not implemented yet.");
 			}
 
 			//Get vector between current position and player position
@@ -77,7 +79,7 @@ public class PlayerDetectionScript : MonoBehaviour {
 	void OnTriggerExit(Collider collider)
 	{
 		//When the player leaves the radius, reset all the variables and proceed with normal behaviour
-		if(collider.tag == "Player")
+		if(collider.gameObject.tag == "Player")
 		{
 			towards = false;//Reset Enter variables
 			flee = false;//Reset enter variables

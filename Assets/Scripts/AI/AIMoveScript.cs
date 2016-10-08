@@ -31,36 +31,56 @@ public class AIMoveScript : MonoBehaviour
             MoveForwards();
         }
 
-		if(moveToPlayer)
+		if(moveToPlayer)//If the AI is moving the player.
 		{
-			//If a player enters the detection radius and we have to approach, this triggers.
-			transform.position = Vector3.MoveTowards (transform.position,playerPosition,Time.deltaTime);
+			if((transform.position - playerPosition).magnitude > 2)//If the player is closer than 2 units.
+			{
+				//We move towards the player.
+				transform.position = Vector3.MoveTowards (transform.position, playerPosition, Time.deltaTime);
+			}
+			//We look towards the player.
+			Quaternion lookRotation = Quaternion.LookRotation ((transform.position - playerPosition));
+
+			transform.rotation = Quaternion.Slerp (transform.rotation, lookRotation, Time.deltaTime);
+
+	
 		}
         
 
 
-
-		//The following 3 functions basically explain themselves.
-		if (leftTriggered)
-        {
-            leftTriggerOn();
-        }
-
-
-        if (rightTriggered)
-        {
-            rightTriggerOn();
-        }
+		if(!moveToPlayer)
+		{
+			//The following 3 functions basically explain themselves.
+			if (leftTriggered)
+			{
+				leftTriggerOn();
+			}
 
 
-        if (leftTriggered && rightTriggered)
-        {
-            bothTriggered();
-        }
+			if (rightTriggered)
+			{
+				rightTriggerOn();
+			}
+
+
+			if (leftTriggered && rightTriggered)
+			{
+				bothTriggered();
+			}
+		}
+
 	}
 
 
 
+
+
+
+
+
+
+
+	#region UtilityFunctions
 	//Steps to take once the triggers activate, either rotate left, or right.
     void leftTriggerOn()
     {
@@ -84,7 +104,5 @@ public class AIMoveScript : MonoBehaviour
 	{
 		transform.Translate (Vector3.forward * Time.deltaTime); 
 	}
-
-
-    
+	#endregion
 }
