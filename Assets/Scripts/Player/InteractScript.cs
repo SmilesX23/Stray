@@ -41,7 +41,7 @@ public class InteractScript : MonoBehaviour {
 		} 
 		else //In all other cases, I.E: if nothing is happening, make sure the text prompt isn't showing.
 		{
-			interactText.enabled = false;
+			//interactText.enabled = false;
 		}
 	}
 }
