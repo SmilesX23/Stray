@@ -39,6 +39,7 @@ public class NetworkManager : MonoBehaviour {
 		myPlayer.GetComponent <CharacterController> ().enabled = true;
 		myPlayer.GetComponent <FirstPersonController> ().enabled = true;
 		myPlayer.GetComponentInChildren<Camera>().enabled = true;
+		myPlayer.GetComponentInChildren<AudioListener> ().enabled = true;
 
 	}
 
