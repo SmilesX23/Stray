@@ -10,7 +10,7 @@ public class InteractScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		interactText = GameObject.Find ("InteractText").GetComponent<Text> ();//When the player is instantiated, search for the InteractText object.
+		interactText = GameObject.Find ("InteractText").GetComponent<Text> ();//When the player is instantiated, search for the InteractText object, then acquire its text.
 	}
 	
 	// Update is called once per frame
