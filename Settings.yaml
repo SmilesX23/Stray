@@ -1,0 +1,13 @@
+---
+WellsDeplete : true
+WellsLightAmount : 50
+WellsLightRecharge : 1
+
+PlayerLightPool : 100
+PlayerLightConsumption : 1
+PlayerCanGhost : false
+
+LightToActivateBeacon : 30
+
+TimeToEndLevel : 15
+...

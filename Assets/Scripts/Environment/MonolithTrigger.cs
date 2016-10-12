@@ -4,6 +4,9 @@ using System.Collections;
 public class MonolithTrigger : MonoBehaviour
 {
     #region Variables
+    private PersistentData m_pData;
+    private float m_timeToEnd;
+
     public int m_totalNumberOfBeacons;
     public int m_numberOfLitBeacons;
 
@@ -19,6 +22,9 @@ public class MonolithTrigger : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        m_pData = (PersistentData)FindObjectOfType(typeof(PersistentData));
+        m_timeToEnd = m_pData.m_timeToEndLevel;
+
         m_numberOfLitBeacons = 0;
         m_totalPlayerCount = 0;
     }
@@ -45,6 +51,11 @@ public class MonolithTrigger : MonoBehaviour
         if (AllBeaconsLit())
         {
             Debug.Log("All the beacons are lit!!");
+            foreach (Transform go in GetComponentsInChildren<Transform>(true))
+            {
+                go.gameObject.SetActive(true);
+            }
+            GetComponent<BoxCollider>().enabled = true;
         }
     }
 
@@ -67,26 +78,34 @@ public class MonolithTrigger : MonoBehaviour
     {
         if(collider.gameObject.tag == "Player")
         {
-            m_playersInTrigger++;
+            print("ending");
+            StartCoroutine(EndGame());
         }
         
     }
 
-    void OnTriggerStay(Collider collider)//Check to se if the beacons are lit and if all the players are present in the trigger zone
+    //void OnTriggerStay(Collider collider)//Check to se if the beacons are lit and if all the players are present in the trigger zone
+    //{
+    //    if(AllBeaconsLit() && m_playersInTrigger == m_totalPlayerCount )//If beacons are lit and all players are present, end the game
+    //    {
+    //        EndTheGame();
+    //    }
+    //}
+
+    //void OnTriggerExit(Collider collider)//If a player leaves the trigger
+    //{
+    //    if(collider.gameObject.tag == "Player")
+    //    {
+    //        m_playersInTrigger--;
+    //    }
+        
+    //}
+
+    IEnumerator EndGame()
     {
-        if(AllBeaconsLit() && m_playersInTrigger == m_totalPlayerCount )//If beacons are lit and all players are present, end the game
-        {
-            EndTheGame();
-        }
+        yield return new WaitForSeconds(m_timeToEnd);
+        Application.Quit();
     }
 
-    void OnTriggerExit(Collider collider)//If a player leaves the trigger
-    {
-        if(collider.gameObject.tag == "Player")
-        {
-            m_playersInTrigger--;
-        }
-        
-    }
     #endregion
 }

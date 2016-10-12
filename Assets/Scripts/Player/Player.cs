@@ -18,7 +18,7 @@ public class Player : MonoBehaviour {
         m_pData = (PersistentData)FindObjectOfType(typeof(PersistentData));
 
         m_lightPool = m_pData.m_playerLightPool;
-        m_lightConsumption = m_pData.m_playerLightCOnsumption;
+        m_lightConsumption = m_pData.m_playerLightConsumption;
         m_canBecomeGhost = m_pData.m_playerCanGhost;
 
 
@@ -34,11 +34,14 @@ public class Player : MonoBehaviour {
             {
                 if (!m_canBecomeGhost)
                 {
+                    print("dead no ghost");
                     Application.Quit();
                 }
                 else
                 {
                     DisablePlayerStuff();
+                    m_lightPool = 0;
+                    print("dead");
                 }
             }
         }

@@ -23,11 +23,29 @@ public class LightFountain : MonoBehaviour {
 	
 	void OnTriggerStay (Collider other)
     {
-	    if (other.tag == "Player")
+	    if (other.tag == "Player" && other.GetComponent<Player>() != null)
         {
+            if (m_canBeDepleted)
+            {
+                m_lightPool -= m_lightRegeneration * Time.deltaTime;
+                if (m_lightPool <= 0)
+                {
+                    //disable particle systems and return so that player does not receive light
+                    foreach (Transform obj in GetComponentsInChildren<Transform>())
+                    {
+                        if (obj != this.transform)
+                        {
+                            obj.gameObject.SetActive(false);
+                        }
+                    }
+                }
+            }
             other.GetComponent<Player>().AddLight(m_lightRegeneration * Time.deltaTime);
         }
+    }
 
+    void OnTriggerEnter(Collider other)
+    {
         if (other.tag == "AI")
         {
             other.GetComponent<NavmeshAI>().SwitchGoals();
