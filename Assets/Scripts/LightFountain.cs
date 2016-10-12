@@ -27,5 +27,10 @@ public class LightFountain : MonoBehaviour {
         {
             other.GetComponent<Player>().AddLight(m_lightRegeneration * Time.deltaTime);
         }
-	}
+
+        if (other.tag == "AI")
+        {
+            other.GetComponent<NavmeshAI>().SwitchGoals();
+        }
+    }
 }

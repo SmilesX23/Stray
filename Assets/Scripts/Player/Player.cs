@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
 
 
     private PersistentData m_pData;
-    private float m_lightPool;
+    public float m_lightPool;
     private float m_lightConsumption;
     private bool m_canBecomeGhost;
 
@@ -18,7 +18,7 @@ public class Player : MonoBehaviour {
         m_pData = (PersistentData)FindObjectOfType(typeof(PersistentData));
 
         m_lightPool = m_pData.m_playerLightPool;
-        m_lightPool = m_pData.m_playerLightCOnsumption;
+        m_lightConsumption = m_pData.m_playerLightCOnsumption;
         m_canBecomeGhost = m_pData.m_playerCanGhost;
 
 
@@ -26,9 +26,10 @@ public class Player : MonoBehaviour {
 
     void Update ()
     {
-        if (GetComponent<Rigidbody>().velocity != Vector3.zero)
+        if (GetComponent<CharacterController>().velocity != Vector3.zero)
         {
             m_lightPool -= Time.deltaTime * m_lightConsumption;
+            UpdateLight();
             if (m_lightPool <= 0)
             {
                 if (!m_canBecomeGhost)

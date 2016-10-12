@@ -20,7 +20,7 @@ public class PersistentData : MonoBehaviour {
     public float m_wellLightRecharge = 100F;
 
     //player
-    public float m_playerLightPool = 100;
+    public float m_playerLightPool = 100F;
     public float m_playerLightCOnsumption = 0.5F;
 
     public bool m_playerCanGhost = false;
