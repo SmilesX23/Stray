@@ -8,10 +8,10 @@ public class NetworkManager : MonoBehaviour {
 	public string roomName = "Stray";
 
 	public GameObject playerPrefabName;
-    public GameObject NPCname;
+    //public GameObject NPCname;
 	public Camera camera;
 	public Transform spawnPoint;
-    public Transform spawnPoint1;
+    //public Transform spawnPoint1;
 
 
 
@@ -37,7 +37,7 @@ public class NetworkManager : MonoBehaviour {
 
 		GameObject myPlayer = PhotonNetwork.Instantiate (playerPrefabName.name, spawnPoint.position, spawnPoint.rotation, 0);
 
-        GameObject NPC = PhotonNetwork.Instantiate(NPCname.name, spawnPoint1.position, spawnPoint1.rotation, 0);
+        //GameObject NPC = PhotonNetwork.Instantiate(NPCname.name, spawnPoint1.position, spawnPoint1.rotation, 0);
 
 		//The following components are disabled by default, to insure clone independence on a single machine.
 		myPlayer.GetComponent <CharacterController> ().enabled = true;//Turn on the character controller
