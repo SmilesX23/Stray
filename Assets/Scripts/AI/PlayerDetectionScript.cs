@@ -27,19 +27,8 @@ public class PlayerDetectionScript : MonoBehaviour {
 		//If the trigger collided with a player, decide whether or not to approach or flee.
 		if(collider.gameObject.tag == "Player")
 		{
-			//50% chance to approach or flee
-			//rand = Random.Range (0,2);
-			//if(rand == 0)
-		//	{
 				Debug.Log ("Towards set to true!");
 				towards = true;
-		//	}
-
-		//	if(rand == 1)
-		//	{
-		//		Debug.Log ("Flee set to true!");
-		//		flee = true;
-		//	}	
 		}
 
 	}
@@ -57,22 +46,14 @@ public class PlayerDetectionScript : MonoBehaviour {
 				mothershipMS.moveToPlayer = true;
 				mothershipMS.playerPosition = collider.gameObject.transform.position;
 			}
-			//If decided to flee, run the fuck away.
-			if(flee)
-			{
-				mothershipMS.stopMoving = true;
-				mothershipMS.moveToPlayer = false;
-				mothershipMS.fleeFromPlayer = true;
-				mothershipMS.playerPosition = collider.gameObject.transform.position;
-
-			}
+			
 
 			//Get vector between current position and player position
 			distance = transform.position - collider.transform.position;
 
-			//If distance is less than 2, stop the AI agent from moving. 
+			//If distance is less than 3, stop the AI agent from moving. 
 			//This stops the AI from running into the player, or if the plyer catches up, stops the NPC so they can talk.
-			if(distance.magnitude < 2)
+			if(distance.magnitude < 3)
 			{
 				mothershipMS.stopMoving = true;
 			}	

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class AIMoveScript : MonoBehaviour 
 {
+    #region Variables
     public bool stopMoving = false;
 	public bool moveToPlayer = false;
 	public bool fleeFromPlayer = false;
@@ -11,9 +12,10 @@ public class AIMoveScript : MonoBehaviour
 
     public bool leftTriggered = false;
     public bool rightTriggered = false;
+    #endregion
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
 	{
 		
 	}
@@ -38,35 +40,16 @@ public class AIMoveScript : MonoBehaviour
 				//We move towards the player.
 				transform.position = Vector3.MoveTowards (transform.position, playerPosition, Time.deltaTime);
 			}
-			//We look towards the player. #####THIS IS CURRENTLY BROKEN##### SHOWS THE INVERSE OF WHERE I WANT IT TO LOOK
+			
+            
+            //We look towards the player. #####THIS IS CURRENTLY BROKEN##### SHOWS THE INVERSE OF WHERE I WANT IT TO LOOK
 			Quaternion lookRotation = Quaternion.LookRotation ((playerPosition - transform.position));
-
-			transform.rotation = Quaternion.Slerp (transform.rotation, lookRotation, Time.deltaTime*2);
+            transform.rotation = Quaternion.Slerp (transform.rotation, lookRotation, Time.deltaTime*2);
 		}
 
 
-		//Flee currently not implemented correctly, modify following code to suit needs.
-		/*
-		if(fleeFromPlayer)//If the AI is fleeing the player.
-		{
-			//Look away from the Player the NPC is fleeing from.
-			Quaternion lookRotation = Quaternion.LookRotation ((transform.position - playerPosition));
-			transform.rotation = Quaternion.Slerp (transform.rotation, lookRotation, Time.deltaTime);
-
-			if((transform.position - playerPosition).magnitude < 10)//If the player is closer than 10 units.
-			{
-				//We move in a straight line, rotating to face away from the player.
-				transform.Translate (Vector3.forward * Time.deltaTime*5);
-			}
-			if((transform.position - playerPosition).magnitude > 20f)//If the NPC gets far enough away.
-			{
-				fleeFromPlayer = false;
-			}
-		}
-		*/
-        
-
-
+	
+   
 		if(!moveToPlayer)//These are critical to the normal behavior and are only in effect if the NPC isn't approaching the player.
 		{
 			//The following 3 functions basically explain themselves.
