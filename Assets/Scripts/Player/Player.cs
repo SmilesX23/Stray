@@ -58,4 +58,18 @@ public class Player : MonoBehaviour {
             Is.enabled = false;
         }
     }
+
+    public void AddLight(float light)
+    {
+        if (m_lightPool < m_pData.m_playerLightPool)
+        {
+            m_lightPool += light;
+        }
+    }
+
+    void UpdateLight()
+    {
+        Light light = GetComponentInChildren<Light>();
+        light.intensity = m_lightPool / m_pData.m_playerLightPool;
+    }
 }
