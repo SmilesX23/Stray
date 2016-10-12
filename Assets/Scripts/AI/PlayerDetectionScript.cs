@@ -28,18 +28,18 @@ public class PlayerDetectionScript : MonoBehaviour {
 		if(collider.gameObject.tag == "Player")
 		{
 			//50% chance to approach or flee
-			rand = Random.Range (0,2);
-			if(rand == 0)
-			{
+			//rand = Random.Range (0,2);
+			//if(rand == 0)
+		//	{
 				Debug.Log ("Towards set to true!");
 				towards = true;
-			}
+		//	}
 
-			if(rand == 1)
-			{
-				Debug.Log ("Flee set to true!");
-				flee = true;
-			}	
+		//	if(rand == 1)
+		//	{
+		//		Debug.Log ("Flee set to true!");
+		//		flee = true;
+		//	}	
 		}
 
 	}

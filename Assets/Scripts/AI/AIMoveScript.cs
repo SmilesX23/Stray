@@ -39,7 +39,7 @@ public class AIMoveScript : MonoBehaviour
 				transform.position = Vector3.MoveTowards (transform.position, playerPosition, Time.deltaTime);
 			}
 			//We look towards the player. #####THIS IS CURRENTLY BROKEN##### SHOWS THE INVERSE OF WHERE I WANT IT TO LOOK
-			Quaternion lookRotation = Quaternion.LookRotation ((transform.position - playerPosition));
+			Quaternion lookRotation = Quaternion.LookRotation ((playerPosition - transform.position));
 
 			transform.rotation = Quaternion.Slerp (transform.rotation, lookRotation, Time.deltaTime*2);
 		}
