@@ -3,13 +3,20 @@ using System.Collections;
 
 public class LightFountain : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    #region member variables
+
+    private float m_lightPool = 100;
+    public float m_lightConsumption = 0.5F;
+
+    #endregion
+
+    void Start ()
+    {
 	
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	void Update ()
+    {
+	    
 	}
 }
