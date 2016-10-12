@@ -8,11 +8,25 @@ public class NetworkManager : MonoBehaviour {
 	public string roomName = "Stray";
 
 	public GameObject playerPrefabName;
-    //public GameObject NPCname;
 	public Camera camera;
 	public Transform spawnPoint;
     //public Transform spawnPoint1;
 
+    private GameObject m_persistentData;
+    
+
+    void Awake()
+    {
+        if (!GameObject.Find("PersistentDataGO"))
+        {
+            m_persistentData = new GameObject("PersistentDataGO");
+            m_persistentData.AddComponent<PersistentData>();
+        }
+        else
+        {
+            GameObject.Find("PersistentDataGO");
+        }
+    }
 
 
 	void Start () 
