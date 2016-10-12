@@ -39,7 +39,7 @@ public class NetworkManager : MonoBehaviour {
 	{
 		Debug.Log ("Lobby joined");
 
-		RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = 4 };//Create custom room options, here the room isn't visible to others and has 4 ppl max.
+		RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = 10 };//Create custom room options, here the room isn't visible to others and has 10 ppl max.
 		PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, TypedLobby.Default);//Join or create the room if it doesn't already exist.
 	}
 
