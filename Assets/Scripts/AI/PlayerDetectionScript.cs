@@ -5,7 +5,7 @@ public class PlayerDetectionScript : MonoBehaviour {
 
 	int rand;
 	bool towards = false;
-	bool flee = false;
+	
 	Vector3 distance;
 	AIMoveScript mothershipMS;
 
@@ -68,7 +68,6 @@ public class PlayerDetectionScript : MonoBehaviour {
 		if(collider.gameObject.tag == "Player")
 		{
 			towards = false;//Reset Enter variables
-			flee = false;//Reset enter variables
 			mothershipMS.stopMoving = false; //Allow agent to start moving again (part of normal behaviour)
 			mothershipMS.moveToPlayer = false; //AI agent is no longer moving towards the player.
 			mothershipMS.fleeFromPlayer = false; //AI agent is no longer fleeing from player.
