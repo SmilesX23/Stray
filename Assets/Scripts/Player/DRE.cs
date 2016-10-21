@@ -19,7 +19,7 @@ using UnityEngine;
 public class DRE : Photon.MonoBehaviour, IPunObservable
 {
     [Range(0.9f, 1.1f)]
-    public float Factor = 0.98f;    // this factor makes the extrapolated movement a bit slower. the idea is to compensate some of the lag-dependent variance.
+        
 
     // some internal values. see comments below
     private Vector3 latestCorrectPos = Vector3.zero;
@@ -77,6 +77,6 @@ public class DRE : Photon.MonoBehaviour, IPunObservable
 
         // we move the object, based on the movement it did between the last two updates.
         // in addition, we factor in the error between the last correct update we got and our extrapolated position at that time.
-        transform.localPosition += (this.movementVector + this.errorVector) * this.Factor * Time.deltaTime;
+        transform.localPosition += (this.movementVector + this.errorVector) * Time.deltaTime;
     }
 }

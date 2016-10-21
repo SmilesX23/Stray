@@ -35,7 +35,7 @@ public class DeadReckoning : Photon.MonoBehaviour, IPunObservable
         // Our fraction variable should reach 1 in 100ms, so we should multiply deltaTime by 10.
 
 
-        this.fraction = fraction + Time.deltaTime * 10;
+        this.fraction = fraction + Time.deltaTime;
         transform.localPosition = Vector3.Lerp(this.onUpdatePos, this.latestCorrectPos, this.fraction); // set our pos between A and B
     }
 
