@@ -5,7 +5,8 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class NetworkManager : MonoBehaviour {
 
 	const string VERSION = "v0.0.1";
-	public string roomName = "Stray";
+	public string roomName = "";
+    
 
 	public GameObject playerPrefabName;
 	public Camera camera;
@@ -13,7 +14,10 @@ public class NetworkManager : MonoBehaviour {
     //public Transform spawnPoint1;
 
     private GameObject m_persistentData;
-    
+
+    //Persistent data transferral variables (Used to get the users room name)
+    private GameObject m_dataTransfer;
+    private RoomNameScript nameScript;
 
     void Awake()
     {
@@ -33,6 +37,14 @@ public class NetworkManager : MonoBehaviour {
 	{
 		PhotonNetwork.ConnectUsingSettings (VERSION);//Connect to the lobby using the given settings
 
+        //Get the room name from the first scene
+        m_dataTransfer = GameObject.Find("DataTransfer");
+        nameScript = m_dataTransfer.GetComponent<RoomNameScript>();
+        roomName = nameScript.m_RoomName;
+
+        //Potentially unnecessary cleanup
+        Destroy(m_dataTransfer);
+        Destroy(nameScript);
 	}
 	
 	void OnJoinedLobby()
