@@ -5,7 +5,9 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class NetworkManager : MonoBehaviour {
 
 	const string VERSION = "v0.0.1";
+
 	public string roomName = "";
+    public int m_maxPlayersPerRoom = 5;
     
 
 	public GameObject playerPrefabName;
@@ -16,8 +18,7 @@ public class NetworkManager : MonoBehaviour {
     private GameObject m_persistentData;
 
     //Persistent data transferral variables (Used to get the users room name)
-    private GameObject m_dataTransfer;
-    private RoomNameScript nameScript;
+  
 
     void Awake()
     {
@@ -36,24 +37,28 @@ public class NetworkManager : MonoBehaviour {
 	void Start () 
 	{
 		PhotonNetwork.ConnectUsingSettings (VERSION);//Connect to the lobby using the given settings
-
-        //Get the room name from the first scene
-        m_dataTransfer = GameObject.Find("DataTransfer");
-        nameScript = m_dataTransfer.GetComponent<RoomNameScript>();
-        roomName = nameScript.m_RoomName;
-
-        //Potentially unnecessary cleanup
-        Destroy(m_dataTransfer);
-        Destroy(nameScript);
 	}
 	
+
+
+
+
+
 	void OnJoinedLobby()
 	{
 		Debug.Log ("Lobby joined");
 
-		RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = 10 };//Create custom room options, here the room isn't visible to others and has 10 ppl max.
+ 
+		RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = (byte)m_maxPlayersPerRoom };//Create custom room options, here the room isn't visible to others and has 10 ppl max.
+
+
 		PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, TypedLobby.Default);//Join or create the room if it doesn't already exist.
 	}
+
+
+
+
+
 
 	void OnJoinedRoom()
 	{
