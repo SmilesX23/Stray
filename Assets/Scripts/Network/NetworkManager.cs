@@ -6,7 +6,7 @@ public class NetworkManager : MonoBehaviour {
 
 	const string VERSION = "v0.0.1";
 
-	public string roomName = "";
+	public string roomName = "Stray";
     public int m_maxPlayersPerRoom = 5;
     
 
