@@ -8,6 +8,8 @@ public class NetworkManager : MonoBehaviour {
 
 	public string roomName = "Stray";
     public int m_maxPlayersPerRoom = 5;
+
+    public int roomNumber;
     
 
 	public GameObject playerPrefabName;
@@ -42,19 +44,19 @@ public class NetworkManager : MonoBehaviour {
 
 
 
-
-
-    void OnConnectedToMaster()
+    void OnJoinedLobby()
     {
-        Debug.Log("OnConnectedToMaster");
+        Debug.Log("Joined lobby");
         PhotonNetwork.JoinRandomRoom();
     }
+
+
+   
 
     void OnPhotonRandomJoinFailed()
     {
         Debug.Log("OnPhotonRandomJoinFailed");
-        PhotonNetwork.CreateRoom(null, new RoomOptions() {maxPlayers = (byte)m_maxPlayersPerRoom},TypedLobby.Default);
-        PhotonNetwork.JoinRandomRoom();
+        PhotonNetwork.CreateRoom(null, new RoomOptions(){maxPlayers = (byte)m_maxPlayersPerRoom},TypedLobby.Default);
     }
 
 
