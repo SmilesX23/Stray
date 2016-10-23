@@ -38,24 +38,24 @@ public class NetworkManager : MonoBehaviour {
 	{
 		PhotonNetwork.ConnectUsingSettings (VERSION);//Connect to the lobby using the given settings
 	}
-	
 
 
 
 
 
-	void OnJoinedLobby()
-	{
-		Debug.Log ("Lobby joined");
 
- 
-		RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = (byte)m_maxPlayersPerRoom };//Create custom room options, here the room isn't visible to others and has 10 ppl max.
+    void OnConnectedToMaster()
+    {
+        Debug.Log("OnConnectedToMaster");
+        PhotonNetwork.JoinRandomRoom();
+    }
 
-
-		PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, TypedLobby.Default);//Join or create the room if it doesn't already exist.
-	}
-
-
+    void OnPhotonRandomJoinFailed()
+    {
+        Debug.Log("OnPhotonRandomJoinFailed");
+        PhotonNetwork.CreateRoom(null, new RoomOptions() {maxPlayers = (byte)m_maxPlayersPerRoom},TypedLobby.Default);
+        PhotonNetwork.JoinRandomRoom();
+    }
 
 
 
