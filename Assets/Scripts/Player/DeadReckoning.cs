@@ -19,8 +19,8 @@ public class DeadReckoning : Photon.MonoBehaviour
     public void Start()
 	{
         m_rb = this.gameObject.GetComponent<Rigidbody>();
-        PhotonNetwork.sendRate = 20;
-        PhotonNetwork.sendRateOnSerialize = 20;
+        PhotonNetwork.sendRate = 25;
+        PhotonNetwork.sendRateOnSerialize = 25;
 	}
 
 
@@ -29,7 +29,7 @@ public class DeadReckoning : Photon.MonoBehaviour
     {
        if(!photonView.isMine)
         {
-            Vector3 projectedPosition = this.correctPlayerPosition +currentVelocity * (Time.time - updateTime);
+            Vector3 projectedPosition = this.correctPlayerPosition + currentVelocity * (Time.time - updateTime);
 
             transform.position = Vector3.Lerp(transform.position, projectedPosition, Time.deltaTime * 4);
             transform.rotation = Quaternion.Lerp (transform.rotation, this.correctPlayerRotation, Time.deltaTime * 4);
