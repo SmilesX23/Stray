@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class MonolithTrigger : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class MonolithTrigger : MonoBehaviour
 
     public int m_totalPlayerCount;
     public int m_playersInTrigger;
+
+    public Text monolithText;
+    public Text remiainingTimeText;
+
+    public bool countdown = false;
+
     #endregion
 
 
@@ -27,18 +34,25 @@ public class MonolithTrigger : MonoBehaviour
 
         m_numberOfLitBeacons = 0;
         m_totalPlayerCount = 0;
+
+        m_totalNumberOfBeacons = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (countdown)
+        {
+            m_timeToEnd -= Time.deltaTime;
+            
+            if(m_timeToEnd < 0f)
+            {
+                Application.Quit();
+            }
+        }
     }
 
-    void EndTheGame()
-    {
-        Debug.Log("Game Is Over!!");
-    }
+   
     #endregion
 
 
@@ -47,6 +61,7 @@ public class MonolithTrigger : MonoBehaviour
     #region BeaconFunctions
     public void BeaconLit()//Incrememnt the number of lit beacons
     {
+        Debug.Log("BeaconLit() called");
         m_numberOfLitBeacons++;
         if (AllBeaconsLit())
         {
@@ -64,6 +79,7 @@ public class MonolithTrigger : MonoBehaviour
 
     bool AllBeaconsLit() //Check to see if all the beacons have bit lit by the players.
     {
+        Debug.Log("AllBeaconsLitCalled");
         return (m_numberOfLitBeacons == m_totalNumberOfBeacons);
     }
     #endregion
@@ -76,35 +92,29 @@ public class MonolithTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)//If a player enters the trigger, up th eplayer counts in trigger by 1
     {
-        if(collider.gameObject.tag == "Player")
+        if(collider.gameObject.tag == "Player" && AllBeaconsLit())
         {
             print("ending");
-            StartCoroutine(EndGame());
+            EndGame();
         }
         
     }
 
-    //void OnTriggerStay(Collider collider)//Check to se if the beacons are lit and if all the players are present in the trigger zone
-    //{
-    //    if(AllBeaconsLit() && m_playersInTrigger == m_totalPlayerCount )//If beacons are lit and all players are present, end the game
-    //    {
-    //        EndTheGame();
-    //    }
-    //}
+    
 
-    //void OnTriggerExit(Collider collider)//If a player leaves the trigger
-    //{
-    //    if(collider.gameObject.tag == "Player")
-    //    {
-    //        m_playersInTrigger--;
-    //    }
-        
-    //}
+    
 
-    IEnumerator EndGame()
+     void EndGame()
     {
-        yield return new WaitForSeconds(m_timeToEnd);
-        Application.Quit();
+        monolithText.gameObject.SetActive(true);
+        remiainingTimeText.gameObject.SetActive(true);
+        remiainingTimeText.text = m_timeToEnd.ToString();
+        countdown = true;
+        
+      
+        
+
+        
     }
 
     #endregion
