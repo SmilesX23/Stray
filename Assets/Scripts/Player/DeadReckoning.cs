@@ -19,8 +19,8 @@ public class DeadReckoning : Photon.MonoBehaviour
     public void Start()
 	{
         m_rb = this.gameObject.GetComponent<Rigidbody>();
-        PhotonNetwork.sendRate = 30;
-        PhotonNetwork.sendRateOnSerialize = 30;
+        PhotonNetwork.sendRate = 20;
+        PhotonNetwork.sendRateOnSerialize = 20;
 	}
 
 
