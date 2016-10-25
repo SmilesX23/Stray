@@ -9,5 +9,5 @@ PlayerCanGhost : false
 
 LightToActivateBeacon : 30
 
-TimeToEndLevel : 15
+TimeToEndLevel : 30
 ...
