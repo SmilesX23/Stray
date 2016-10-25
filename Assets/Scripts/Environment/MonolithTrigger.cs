@@ -15,7 +15,7 @@ public class MonolithTrigger : MonoBehaviour
     public int m_playersInTrigger;
 
     public Text monolithText;
-    public Text remiainingTimeText;
+    public Text remainingTimeText;
 
     public bool countdown = false;
 
@@ -44,8 +44,9 @@ public class MonolithTrigger : MonoBehaviour
         if (countdown)
         {
             m_timeToEnd -= Time.deltaTime;
-            
-            if(m_timeToEnd < 0f)
+            remainingTimeText.text = m_timeToEnd.ToString();
+
+            if (m_timeToEnd < 0f)
             {
                 Application.Quit();
             }
@@ -107,14 +108,9 @@ public class MonolithTrigger : MonoBehaviour
      void EndGame()
     {
         monolithText.gameObject.SetActive(true);
-        remiainingTimeText.gameObject.SetActive(true);
-        remiainingTimeText.text = m_timeToEnd.ToString();
+        remainingTimeText.gameObject.SetActive(true);
+        remainingTimeText.text = m_timeToEnd.ToString();
         countdown = true;
-        
-      
-        
-
-        
     }
 
     #endregion
