@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Photon;
 
-public class Beacon : MonoBehaviour {
+public class Beacon : Photon.PunBehaviour {
 
     #region member variables
 
@@ -30,17 +31,22 @@ public class Beacon : MonoBehaviour {
         {
             if (other.GetComponent<Player>() != null && other.GetComponent<Player>().m_lightPool > m_lightToActivate && !m_isActive)
             {
-                m_isActive = true;
-                //activate the beacon!
                 other.GetComponent<Player>().m_lightPool -= m_lightToActivate;
-                //light's up!
-                foreach (Transform go in GetComponentsInChildren<Transform>(true))
-                {
-                    go.gameObject.SetActive(true);
-                }
-                //notify monolith
-                m_monolith.GetComponent<MonolithTrigger>().BeaconLit();
+                photonView.RPC("Activate", PhotonTargets.All);
             }
         }
 	}
+
+    void Activate()
+    {
+        m_isActive = true;
+        
+        //light's up!
+        foreach (Transform go in GetComponentsInChildren<Transform>(true))
+        {
+            go.gameObject.SetActive(true);
+        }
+        //notify monolith
+        m_monolith.GetComponent<MonolithTrigger>().BeaconLit();
+    }
 }
