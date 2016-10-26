@@ -1,14 +1,23 @@
 ﻿using UnityEngine;
+using Photon;
 using System.Collections;
 
-public class PlayerCustomiser : MonoBehaviour {
+public class PlayerCustomiser : Photon.PunBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	void Start ()
+    {
+	    if (photonView.isMine)
+        {
+            foreach(Transform tr in GetComponentInChildren<Transform>())
+            {
+                if (tr.gameObject.name == "PlayerBody")
+                {
+                    tr.gameObject.SetActive(false);
+                }
+            }
+        }
 	}
 	
-	// Update is called once per frame
 	void Update () {
 	
 	}
