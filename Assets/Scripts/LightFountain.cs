@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using Photon;
 using System.Collections;
 
-public class LightFountain : MonoBehaviour {
+public class LightFountain : Photon.PunBehaviour {
 
     #region member variables
 
@@ -30,14 +31,8 @@ public class LightFountain : MonoBehaviour {
                 m_lightPool -= m_lightRegeneration * Time.deltaTime;
                 if (m_lightPool <= 0)
                 {
-                    //disable particle systems and return so that player does not receive light
-                    foreach (Transform obj in GetComponentsInChildren<Transform>())
-                    {
-                        if (obj != this.transform)
-                        {
-                            obj.gameObject.SetActive(false);
-                        }
-                    }
+                    //send an RPC to disable this in every client
+                    photonView.RPC("DisableFountain", PhotonTargets.All);
                 }
             }
             other.GetComponent<Player>().AddLight(m_lightRegeneration * Time.deltaTime);
@@ -49,6 +44,19 @@ public class LightFountain : MonoBehaviour {
         if (other.tag == "AI")
         {
             other.GetComponent<NavmeshAI>().SwitchGoals();
+        }
+    }
+
+    [PunRPC]
+    void DisableFountain()
+    {
+        //disable particle systems and return so that player does not receive light
+        foreach (Transform obj in GetComponentsInChildren<Transform>())
+        {
+            if (obj != this.transform)
+            {
+                obj.gameObject.SetActive(false);
+            }
         }
     }
 }

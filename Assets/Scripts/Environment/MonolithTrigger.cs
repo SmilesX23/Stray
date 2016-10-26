@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
+using Photon;
 using System.Collections;
 using UnityEngine.UI;
 
-public class MonolithTrigger : MonoBehaviour
-{
+public class MonolithTrigger : Photon.PunBehaviour {
     #region Variables
     private PersistentData m_pData;
     private float m_timeToEnd;
@@ -66,17 +66,21 @@ public class MonolithTrigger : MonoBehaviour
         m_numberOfLitBeacons++;
         if (AllBeaconsLit())
         {
-            Debug.Log("All the beacons are lit!!");
-            foreach (Transform go in GetComponentsInChildren<Transform>(true))
-            {
-                go.gameObject.SetActive(true);
-            }
-            GetComponent<BoxCollider>().enabled = true;
+            //notify all clients that the monolith is lit
+            photonView.RPC("Activate", PhotonTargets.All);
         }
     }
 
-
-
+    [PunRPC]
+    void Activate()
+    {
+        Debug.Log("All the beacons are lit!!");
+        foreach (Transform go in GetComponentsInChildren<Transform>(true))
+        {
+            go.gameObject.SetActive(true);
+        }
+        GetComponent<BoxCollider>().enabled = true;
+    }
 
     bool AllBeaconsLit() //Check to see if all the beacons have bit lit by the players.
     {
