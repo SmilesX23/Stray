@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Player : MonoBehaviour {
@@ -10,6 +12,10 @@ public class Player : MonoBehaviour {
     public float m_lightPool;
     private float m_lightConsumption;
     private bool m_canBecomeGhost;
+    private Text m_remainingLight;
+    private GameObject m_remainingLightObject;
+    private Text m_remainingBeacons;
+    private GameObject m_remainingBeaconsObject;
 
     #endregion
 
@@ -21,7 +27,11 @@ public class Player : MonoBehaviour {
         m_lightConsumption = m_pData.m_playerLightConsumption;
         m_canBecomeGhost = m_pData.m_playerCanGhost;
 
+        m_remainingLightObject = GameObject.Find("RemainingLightNumber");
+        m_remainingLight = m_remainingLightObject.GetComponent<Text>();
 
+        m_remainingBeaconsObject = GameObject.Find("remainingBeaconsNumber");
+        m_remainingBeacons = m_remainingBeaconsObject.GetComponent<Text>();
     }
 
     void Update ()
@@ -30,12 +40,16 @@ public class Player : MonoBehaviour {
         {
             m_lightPool -= Time.deltaTime * m_lightConsumption;
             UpdateLight();
+
+            m_remainingLight.text = m_lightPool.ToString();
+
+
             if (m_lightPool <= 0)
             {
                 if (!m_canBecomeGhost)
                 {
                     print("dead no ghost");
-                    Application.Quit();
+                    SceneManager.LoadScene("Intro Scene");
                 }
                 else
                 {

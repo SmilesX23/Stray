@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using Photon;
 using System.Collections;
 using UnityEngine.UI;
@@ -35,7 +36,7 @@ public class MonolithTrigger : Photon.PunBehaviour {
         m_numberOfLitBeacons = 0;
         m_totalPlayerCount = 0;
 
-        m_totalNumberOfBeacons = 1;
+        m_totalNumberOfBeacons = 3;
     }
 
     // Update is called once per frame
@@ -48,7 +49,7 @@ public class MonolithTrigger : Photon.PunBehaviour {
 
             if (m_timeToEnd < 0f)
             {
-                Application.Quit();
+                SceneManager.LoadScene("Intro Scene");
             }
         }
     }
