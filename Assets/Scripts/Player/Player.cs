@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class Player : MonoBehaviour {
@@ -12,10 +12,9 @@ public class Player : MonoBehaviour {
     public float m_lightPool;
     private float m_lightConsumption;
     private bool m_canBecomeGhost;
-    private Text m_remainingLight;
-    private GameObject m_remainingLightObject;
-    private Text m_remainingBeacons;
-    private GameObject m_remainingBeaconsObject;
+
+    private GameObject m_remLight;
+    private Text m_remainingLightNumber;
 
     #endregion
 
@@ -27,11 +26,9 @@ public class Player : MonoBehaviour {
         m_lightConsumption = m_pData.m_playerLightConsumption;
         m_canBecomeGhost = m_pData.m_playerCanGhost;
 
-        m_remainingLightObject = GameObject.Find("RemainingLightNumber");
-        m_remainingLight = m_remainingLightObject.GetComponent<Text>();
-
-        m_remainingBeaconsObject = GameObject.Find("remainingBeaconsNumber");
-        m_remainingBeacons = m_remainingBeaconsObject.GetComponent<Text>();
+        m_remLight = GameObject.Find("RemainingLightNumber");
+        m_remainingLightNumber = m_remLight.GetComponent<Text>();
+        
     }
 
     void Update ()
@@ -41,8 +38,7 @@ public class Player : MonoBehaviour {
             m_lightPool -= Time.deltaTime * m_lightConsumption;
             UpdateLight();
 
-            m_remainingLight.text = m_lightPool.ToString();
-
+            m_remainingLightNumber.text = m_lightPool.ToString();
 
             if (m_lightPool <= 0)
             {
@@ -51,12 +47,12 @@ public class Player : MonoBehaviour {
                     print("dead no ghost");
                     SceneManager.LoadScene("Intro Scene");
                 }
-                else
+               /* else
                 {
                     DisablePlayerStuff();
                     m_lightPool = 0;
                     print("dead");
-                }
+                }*/
             }
         }
     }

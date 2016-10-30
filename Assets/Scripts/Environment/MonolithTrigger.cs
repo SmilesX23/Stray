@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using Photon;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MonolithTrigger : Photon.PunBehaviour {
     #region Variables
@@ -36,7 +36,7 @@ public class MonolithTrigger : Photon.PunBehaviour {
         m_numberOfLitBeacons = 0;
         m_totalPlayerCount = 0;
 
-        m_totalNumberOfBeacons = 3;
+        m_totalNumberOfBeacons = 2;
     }
 
     // Update is called once per frame
@@ -85,7 +85,7 @@ public class MonolithTrigger : Photon.PunBehaviour {
 
     bool AllBeaconsLit() //Check to see if all the beacons have bit lit by the players.
     {
-        Debug.Log("AllBeaconsLitCalled");
+        Debug.Log("AllBeaconsLitCalled check has been called");
         return (m_numberOfLitBeacons == m_totalNumberOfBeacons);
     }
     #endregion
