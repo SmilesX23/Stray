@@ -36,7 +36,7 @@ public class MonolithTrigger : Photon.PunBehaviour {
         m_numberOfLitBeacons = 0;
         m_totalPlayerCount = 0;
 
-        m_totalNumberOfBeacons = 2;
+        m_totalNumberOfBeacons = 4;
     }
 
     // Update is called once per frame
