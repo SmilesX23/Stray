@@ -8,13 +8,12 @@ public class Corpse : Photon.PunBehaviour {
 
     public float m_corpseLight = 10;
 
-    private GameObject m_collider;
-
     #endregion
 
     void OnTriggerEnter(Collider other)
     {
-        m_collider = other.gameObject;
+        other.gameObject.GetComponent<Player>().AddLight(m_corpseLight);
+        
         photonView.RPC("DepleteCorpse", PhotonTargets.All);
     }
 
