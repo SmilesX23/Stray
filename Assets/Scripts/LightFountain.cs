@@ -48,7 +48,7 @@ public class LightFountain : Photon.PunBehaviour {
     }
 
     [PunRPC]
-    void DisableFountain()
+    public void DisableFountain()
     {
         //disable particle systems and return so that player does not receive light
         foreach (Transform obj in GetComponentsInChildren<Transform>())

@@ -81,6 +81,12 @@ public class MonolithTrigger : Photon.PunBehaviour {
             go.gameObject.SetActive(true);
         }
         GetComponent<BoxCollider>().enabled = true;
+
+        //disable all light fountains
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Pool"))
+        {
+            go.GetComponent<LightFountain>().DisableFountain();
+        }
     }
 
     bool AllBeaconsLit() //Check to see if all the beacons have bit lit by the players.

@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityStandardAssets.Characters.FirstPerson;
 
-public class NetworkManager : MonoBehaviour {
+public class NetworkManager : Photon.PunBehaviour {
 
 	const string VERSION = "v0.0.1";
 
@@ -14,13 +14,14 @@ public class NetworkManager : MonoBehaviour {
 
 	public GameObject playerPrefabName;
 	public Camera camera;
-	public Transform spawnPoint;
+	public Transform[] spawnPoints;
+    public int m_playersInRoom = 0;
     //public Transform spawnPoint1;
 
     private GameObject m_persistentData;
 
     //Persistent data transferral variables (Used to get the users room name)
-  
+
 
     void Awake()
     {
@@ -68,7 +69,9 @@ public class NetworkManager : MonoBehaviour {
 		//This is done to keep each individual clone independent if being run on the same machine (Excellent for playtesting and debugging)
 		Debug.Log ("Room joined");
 
-		GameObject myPlayer = PhotonNetwork.Instantiate (playerPrefabName.name, spawnPoint.position, spawnPoint.rotation, 0);
+        m_playersInRoom = PhotonNetwork.playerList.Length - 1;
+
+        GameObject myPlayer = PhotonNetwork.Instantiate (playerPrefabName.name, spawnPoints[m_playersInRoom].position, spawnPoints[m_playersInRoom].rotation, 0);
 
         //GameObject NPC = PhotonNetwork.Instantiate(NPCname.name, spawnPoint1.position, spawnPoint1.rotation, 0);
 
