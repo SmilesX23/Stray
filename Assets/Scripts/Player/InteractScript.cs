@@ -16,27 +16,19 @@ public class InteractScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		RaycastHit hit; //This is used to see what teh Ray has hit.
+		RaycastHit hit; //This is used to see what the Ray has hit.
 
 		if (Physics.Raycast (transform.position, transform.forward,out hit, 3)) //Checks the ray that was cast from the FPC, 3 units ahead, repeatedly.
 		{
-			if(hit.collider.gameObject.tag == "AI")//If ray hit collider with AI tag
-			{
-				interactText.enabled = true; 
-				if(Input.GetKeyDown(KeyCode.E))
-				{
-					//What happens if you interact with the AI agent.
-				}
-			}
-
 			if(hit.collider.gameObject.tag == "Player")
 			{
 				interactText.enabled = true;
 				if(Input.GetKeyDown(KeyCode.E))
 				{
-					//What happens if you interact with the other player.
+                    //What happens if you interact with the other player.
+                    GetComponent<Player>().m_lightPool -= 0.5f;
+                    hit.collider.gameObject.GetComponent<Player>().m_lightPool += 0.5f;
 				}
-
 			}
 		} 
 		else //In all other cases, I.E: if nothing is happening, make sure the text prompt isn't showing.
