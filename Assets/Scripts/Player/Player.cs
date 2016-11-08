@@ -33,6 +33,7 @@ public class Player : MonoBehaviour {
 
     void Update ()
     {
+        m_remainingLightNumber.text = m_lightPool.ToString();
         if (GetComponent<CharacterController>().velocity != Vector3.zero)
         {
             m_lightPool -= Time.deltaTime * m_lightConsumption;
@@ -44,15 +45,8 @@ public class Player : MonoBehaviour {
             {
                 if (!m_canBecomeGhost)
                 {
-                    print("dead no ghost");
                     SceneManager.LoadScene("Intro Scene");
                 }
-               /* else
-                {
-                    DisablePlayerStuff();
-                    m_lightPool = 0;
-                    print("dead");
-                }*/
             }
         }
     }

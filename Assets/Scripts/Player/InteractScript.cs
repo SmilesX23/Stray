@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class InteractScript : MonoBehaviour {
 
 
-	public Text interactText;// This is the "Press E to interact" text object
+	Text interactText;// This is the "Press E to interact" text object
 
 	// Use this for initialization
 	void Start () 
@@ -23,11 +23,12 @@ public class InteractScript : MonoBehaviour {
 			if(hit.collider.gameObject.tag == "Player")
 			{
 				interactText.enabled = true;
-				if(Input.GetKeyDown(KeyCode.E))
+				if(Input.GetKey(KeyCode.E)) //TODO: Refactor this into GETBUTTON
 				{
+                    Debug.Log("Inside the keycode E loop");
                     //What happens if you interact with the other player.
-                    GetComponent<Player>().m_lightPool -= 0.5f;
-                    hit.collider.gameObject.GetComponent<Player>().m_lightPool += 0.5f;
+                    GetComponentInParent<Player>().m_lightPool -= 0.2f;
+                    hit.collider.gameObject.GetComponentInParent<Player>().m_lightPool += 0.2f;
 				}
 			}
 		} 
