@@ -11,6 +11,7 @@ public class NavmeshAI : MonoBehaviour {
 
     void Start()
     {
+        /// TODO: sync position of npc across network
         m_currentGoal = m_beacon;
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.destination = m_currentGoal.position;
