@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class InteractScript : MonoBehaviour {
 
-
 	Text interactText;// This is the "Press E to interact" text object
 
 	// Use this for initialization
@@ -20,7 +19,7 @@ public class InteractScript : MonoBehaviour {
 
 		if (Physics.Raycast (transform.position, transform.forward,out hit, 3)) //Checks the ray that was cast from the FPC, 3 units ahead, repeatedly.
 		{
-			if(hit.collider.gameObject.tag == "Player")
+			if(hit.collider.gameObject.tag == "PLAYERBODY")
 			{
 				interactText.enabled = true;
 				if(Input.GetKey(KeyCode.E)) //TODO: Refactor this into GETBUTTON
