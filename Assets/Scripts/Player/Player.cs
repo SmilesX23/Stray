@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class Player : MonoBehaviour {
@@ -11,6 +13,9 @@ public class Player : MonoBehaviour {
     private float m_lightConsumption;
     private bool m_canBecomeGhost;
 
+    private GameObject m_remLight;
+    private Text m_remainingLightNumber;
+
     #endregion
 
     void Start ()
@@ -21,27 +26,26 @@ public class Player : MonoBehaviour {
         m_lightConsumption = m_pData.m_playerLightConsumption;
         m_canBecomeGhost = m_pData.m_playerCanGhost;
 
-
+        m_remLight = GameObject.Find("RemainingLightNumber");
+        m_remainingLightNumber = m_remLight.GetComponent<Text>();
+        
     }
 
     void Update ()
     {
+        m_remainingLightNumber.text = m_lightPool.ToString();
         if (GetComponent<CharacterController>().velocity != Vector3.zero)
         {
             m_lightPool -= Time.deltaTime * m_lightConsumption;
             UpdateLight();
+
+            m_remainingLightNumber.text = m_lightPool.ToString();
+
             if (m_lightPool <= 0)
             {
                 if (!m_canBecomeGhost)
                 {
-                    print("dead no ghost");
-                    Application.Quit();
-                }
-                else
-                {
-                    DisablePlayerStuff();
-                    m_lightPool = 0;
-                    print("dead");
+                    SceneManager.LoadScene("Intro Scene");
                 }
             }
         }

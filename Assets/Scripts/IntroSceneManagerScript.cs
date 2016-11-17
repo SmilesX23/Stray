@@ -19,7 +19,7 @@ public class IntroSceneManagerScript : MonoBehaviour {
 
     public void OnPlayClicked()
     {
-        SceneManager.LoadScene("Multiplayer Final"); 
+        SceneManager.LoadScene("ArtProto"); 
     }
 
     public void OnOptionsClicked()

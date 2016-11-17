@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using Photon;
 
@@ -36,7 +36,7 @@ public class Beacon : Photon.PunBehaviour {
             }
         }
 	}
-
+    [PunRPC]
     void Activate()
     {
         m_isActive = true;
