@@ -1,0 +1,203 @@
+fileFormatVersion: 2
+guid: fe3d86f617399a74ebcc500c8249ab3f
+timeCreated: 1479410905
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: BN_Elbow_R
+    100004: BN_Hip
+    100006: BN_LanHandle
+    100008: BN_Lantern
+    100010: BN_Lantern_End
+    100012: BN_Shldr_R
+    100014: BN_Spine_1
+    100016: BN_Spine_2
+    100018: BN_Thumb_r
+    100020: BN_Wrist_R
+    100022: CN_All
+    100024: CN_Elbow_R
+    100026: CN_Hip
+    100028: CN_LanHandle
+    100030: CN_Lantern
+    100032: CN_Shldr_R
+    100034: CN_Spine_1
+    100036: CN_Spine_2
+    100038: CN_Thumb_R
+    100040: CN_Wrist_R
+    100042: Geo_Char_Body
+    100044: Geo_Lantern
+    100046: Geo_LanternHandle
+    400000: //RootNode
+    400002: BN_Elbow_R
+    400004: BN_Hip
+    400006: BN_LanHandle
+    400008: BN_Lantern
+    400010: BN_Lantern_End
+    400012: BN_Shldr_R
+    400014: BN_Spine_1
+    400016: BN_Spine_2
+    400018: BN_Thumb_r
+    400020: BN_Wrist_R
+    400022: CN_All
+    400024: CN_Elbow_R
+    400026: CN_Hip
+    400028: CN_LanHandle
+    400030: CN_Lantern
+    400032: CN_Shldr_R
+    400034: CN_Spine_1
+    400036: CN_Spine_2
+    400038: CN_Thumb_R
+    400040: CN_Wrist_R
+    400042: Geo_Char_Body
+    400044: Geo_Lantern
+    400046: Geo_LanternHandle
+    4300000: Geo_Char_Body
+    4300002: Geo_Lantern
+    4300004: Geo_LanternHandle
+    7400000: Anim_1stIdle
+    9500000: //RootNode
+    13700000: Geo_Char_Body
+    13700002: Geo_Lantern
+    13700004: Geo_LanternHandle
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Anim_1stIdle
+      takeName: Take 001
+      firstFrame: 2
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BN_Hip
+        weight: 1
+      - path: BN_Hip/BN_Spine_1
+        weight: 1
+      - path: BN_Hip/BN_Spine_1/BN_Spine_2
+        weight: 1
+      - path: BN_Hip/BN_Spine_1/BN_Spine_2/BN_Shldr_R
+        weight: 1
+      - path: BN_Hip/BN_Spine_1/BN_Spine_2/BN_Shldr_R/BN_Elbow_R
+        weight: 1
+      - path: BN_Hip/BN_Spine_1/BN_Spine_2/BN_Shldr_R/BN_Elbow_R/BN_Wrist_R
+        weight: 1
+      - path: BN_Hip/BN_Spine_1/BN_Spine_2/BN_Shldr_R/BN_Elbow_R/BN_Wrist_R/BN_LanHandle
+        weight: 1
+      - path: BN_Hip/BN_Spine_1/BN_Spine_2/BN_Shldr_R/BN_Elbow_R/BN_Wrist_R/BN_LanHandle/BN_Lantern
+        weight: 1
+      - path: BN_Hip/BN_Spine_1/BN_Spine_2/BN_Shldr_R/BN_Elbow_R/BN_Wrist_R/BN_LanHandle/BN_Lantern/BN_Lantern_End
+        weight: 1
+      - path: BN_Hip/BN_Spine_1/BN_Spine_2/BN_Shldr_R/BN_Elbow_R/BN_Wrist_R/BN_Thumb_r
+        weight: 1
+      - path: CN_All
+        weight: 1
+      - path: CN_All/CN_Hip
+        weight: 1
+      - path: CN_All/CN_Hip/CN_Spine_1
+        weight: 1
+      - path: CN_All/CN_Hip/CN_Spine_1/CN_Spine_2
+        weight: 1
+      - path: CN_All/CN_Hip/CN_Spine_1/CN_Spine_2/CN_Shldr_R
+        weight: 1
+      - path: CN_All/CN_Hip/CN_Spine_1/CN_Spine_2/CN_Shldr_R/CN_Elbow_R
+        weight: 1
+      - path: CN_All/CN_Hip/CN_Spine_1/CN_Spine_2/CN_Shldr_R/CN_Elbow_R/CN_Wrist_R
+        weight: 1
+      - path: CN_All/CN_Hip/CN_Spine_1/CN_Spine_2/CN_Shldr_R/CN_Elbow_R/CN_Wrist_R/CN_LanHandle
+        weight: 1
+      - path: CN_All/CN_Hip/CN_Spine_1/CN_Spine_2/CN_Shldr_R/CN_Elbow_R/CN_Wrist_R/CN_LanHandle/CN_Lantern
+        weight: 1
+      - path: CN_All/CN_Hip/CN_Spine_1/CN_Spine_2/CN_Shldr_R/CN_Elbow_R/CN_Wrist_R/CN_Thumb_R
+        weight: 1
+      - path: Geo_Char_Body
+        weight: 1
+      - path: Geo_Lantern
+        weight: 1
+      - path: Geo_LanternHandle
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1.2
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

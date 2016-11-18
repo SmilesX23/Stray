@@ -6,7 +6,7 @@ using System.Collections;
 public class DeadReckoning : Photon.MonoBehaviour
 {
 
-    private Rigidbody m_rb;
+    public Rigidbody m_rb;
 
     public Vector3 correctPlayerPosition;
     public Quaternion correctPlayerRotation;
@@ -18,7 +18,7 @@ public class DeadReckoning : Photon.MonoBehaviour
 
     public void Start()
 	{
-        m_rb = this.gameObject.GetComponent<Rigidbody>();
+       // m_rb = this.gameObject.GetComponent<Rigidbody>();
         PhotonNetwork.sendRate = 25;
         PhotonNetwork.sendRateOnSerialize = 25;
 	}
