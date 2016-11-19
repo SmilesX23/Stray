@@ -11,13 +11,15 @@ public class PlayerCustomiser : Photon.PunBehaviour {
     {
 	    if (photonView.isMine)
         {
-            
             m_1stPersPlayerBody.gameObject.SetActive(true);
         }
         if (!photonView.isMine)
         {
             m_PlayerBody.gameObject.SetActive(true);
-            
+            foreach (AudioListener al in GetComponentsInChildren<AudioListener>())
+            {
+                al.enabled = false;
+            }
         }
     }
 	
