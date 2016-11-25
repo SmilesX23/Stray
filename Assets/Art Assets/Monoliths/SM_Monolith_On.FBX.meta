@@ -175,6 +175,38 @@ ModelImporter:
     4300058: Box009
     4300060: Box010
     4300062: Box011
+    6400000: Box008
+    6400002: Box009
+    6400004: Box010
+    6400006: Box011
+    6400008: Box014
+    6400010: Box015
+    6400012: Box016
+    6400014: Box017
+    6400016: Box018
+    6400018: Box019
+    6400020: Cylinder001
+    6400022: leaf003
+    6400024: leaf004
+    6400026: leaf005
+    6400028: leaf006
+    6400030: leaf007
+    6400032: leaf008
+    6400034: leaf009
+    6400036: leaf010
+    6400038: leaf011
+    6400040: leaf012
+    6400042: leaf013
+    6400044: leaf014
+    6400046: leaf015
+    6400048: leaf1
+    6400050: leaf2
+    6400052: Line001
+    6400054: Line002
+    6400056: Line003
+    6400058: Line004
+    6400060: Line005
+    6400062: Line006
   materials:
     importMaterials: 1
     materialName: 0
@@ -201,12 +233,12 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 3
     meshCompression: 0
-    addColliders: 0
-    importBlendShapes: 1
+    addColliders: 1
+    importBlendShapes: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
+    optimizeMeshForGPU: 0
     keepQuads: 0
     weldVertices: 1
     secondaryUVAngleDistortion: 8
