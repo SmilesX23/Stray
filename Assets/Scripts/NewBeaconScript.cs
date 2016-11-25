@@ -49,8 +49,8 @@ public class NewBeaconScript : Photon.PunBehaviour {
         }
 
         m_monolith.GetComponent<MonolithTrigger>().BeaconLit();
-        PhotonNetwork.Instantiate(LitBeacon.name, transform.position, this.gameObject.transform.rotation,0);
-        PhotonNetwork.Destroy(this.gameObject);
+        //PhotonNetwork.Instantiate(LitBeacon.name, transform.position, this.gameObject.transform.rotation,0);
+        //PhotonNetwork.Destroy(this.gameObject);
       
        
     }
