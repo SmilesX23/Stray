@@ -18,12 +18,12 @@ public class Communication : PunBehaviour {
 
     void Start ()
     {
-        m_playerID = GameObject.Find("PlayerIDGO").GetComponent<Text>();
+        //m_playerID = GameObject.Find("PlayerIDGO").GetComponent<Text>();
 	}
 	
 	void Update ()
     {
-        m_playerID.text = PhotonNetwork.player.ID.ToString();
+        //m_playerID.text = PhotonNetwork.player.ID.ToString();
 
         if (m_canCommunicate)
         {
