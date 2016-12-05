@@ -1,0 +1,203 @@
+fileFormatVersion: 2
+guid: 32a9fa1ca1f51374387095a514b3e4bf
+timeCreated: 1480726116
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Lantern_On_1
+    100002: Lantern_On_2
+    100004: Lantern_On_3
+    100006: Leaves_01
+    100008: Leaves_02
+    100010: Leaves_03
+    100012: Leaves_04
+    100014: Leaves_05
+    100016: Leaves_06
+    100018: Leaves_07
+    100020: Leaves_08
+    100022: Leaves_09
+    100024: Leaves_10
+    100026: Leaves_11
+    100028: Leaves_12
+    100030: Leaves_13
+    100032: Leaves_14
+    100034: Leaves_15
+    100036: Rock_On_1
+    100038: Rock_On_2
+    100040: Rock_On_3
+    100042: Rock_On_4
+    100044: //RootNode
+    100046: Trunk
+    100048: Wire_On_1
+    100050: Wire_On_2
+    100052: Wire_On_3
+    400000: Lantern_On_1
+    400002: Lantern_On_2
+    400004: Lantern_On_3
+    400006: Leaves_01
+    400008: Leaves_02
+    400010: Leaves_03
+    400012: Leaves_04
+    400014: Leaves_05
+    400016: Leaves_06
+    400018: Leaves_07
+    400020: Leaves_08
+    400022: Leaves_09
+    400024: Leaves_10
+    400026: Leaves_11
+    400028: Leaves_12
+    400030: Leaves_13
+    400032: Leaves_14
+    400034: Leaves_15
+    400036: Rock_On_1
+    400038: Rock_On_2
+    400040: Rock_On_3
+    400042: Rock_On_4
+    400044: //RootNode
+    400046: Trunk
+    400048: Wire_On_1
+    400050: Wire_On_2
+    400052: Wire_On_3
+    2300000: Lantern_On_1
+    2300002: Lantern_On_2
+    2300004: Lantern_On_3
+    2300006: Leaves_01
+    2300008: Leaves_02
+    2300010: Leaves_03
+    2300012: Leaves_04
+    2300014: Leaves_05
+    2300016: Leaves_06
+    2300018: Leaves_07
+    2300020: Leaves_08
+    2300022: Leaves_09
+    2300024: Leaves_10
+    2300026: Leaves_11
+    2300028: Leaves_12
+    2300030: Leaves_13
+    2300032: Leaves_14
+    2300034: Leaves_15
+    2300036: Rock_On_1
+    2300038: Rock_On_2
+    2300040: Rock_On_3
+    2300042: Rock_On_4
+    2300044: Trunk
+    2300046: Wire_On_1
+    2300048: Wire_On_2
+    2300050: Wire_On_3
+    3300000: Lantern_On_1
+    3300002: Lantern_On_2
+    3300004: Lantern_On_3
+    3300006: Leaves_01
+    3300008: Leaves_02
+    3300010: Leaves_03
+    3300012: Leaves_04
+    3300014: Leaves_05
+    3300016: Leaves_06
+    3300018: Leaves_07
+    3300020: Leaves_08
+    3300022: Leaves_09
+    3300024: Leaves_10
+    3300026: Leaves_11
+    3300028: Leaves_12
+    3300030: Leaves_13
+    3300032: Leaves_14
+    3300034: Leaves_15
+    3300036: Rock_On_1
+    3300038: Rock_On_2
+    3300040: Rock_On_3
+    3300042: Rock_On_4
+    3300044: Trunk
+    3300046: Wire_On_1
+    3300048: Wire_On_2
+    3300050: Wire_On_3
+    4300000: Trunk
+    4300002: Rock_On_4
+    4300004: Rock_On_3
+    4300006: Rock_On_2
+    4300008: Rock_On_1
+    4300010: Wire_On_1
+    4300012: Lantern_On_3
+    4300014: Lantern_On_2
+    4300016: Wire_On_2
+    4300018: Lantern_On_1
+    4300020: Wire_On_3
+    4300022: Leaves_10
+    4300024: Leaves_07
+    4300026: Leaves_02
+    4300028: Leaves_13
+    4300030: Leaves_11
+    4300032: Leaves_09
+    4300034: Leaves_03
+    4300036: Leaves_04
+    4300038: Leaves_08
+    4300040: Leaves_14
+    4300042: Leaves_05
+    4300044: Leaves_01
+    4300046: Leaves_15
+    4300048: Leaves_06
+    4300050: Leaves_12
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 3.5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
