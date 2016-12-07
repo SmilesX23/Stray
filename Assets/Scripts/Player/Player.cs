@@ -45,7 +45,7 @@ public class Player : MonoBehaviour {
             {
                 if (!m_canBecomeGhost)
                 {
-                    SceneManager.LoadScene("Intro Scene");
+                    SceneManager.LoadScene("NEW INTRO SCENE");
                 }
             }
         }
