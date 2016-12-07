@@ -49,7 +49,7 @@ public class MonolithTrigger : Photon.PunBehaviour {
 
             if (m_timeToEnd < 0f)
             {
-                SceneManager.LoadScene("Intro Scene");
+                SceneManager.LoadScene("NEW INTRO SCENE");
             }
         }
     }
